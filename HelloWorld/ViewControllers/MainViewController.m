@@ -53,4 +53,10 @@
     [self.view addSubview:self.updateButton];
 }
 
+#pragma mark - HandleButtonTouch
+
+- (void) updateButtonTouch {
+    self.title = self.mainTextField.text;
+}
+
 @end
