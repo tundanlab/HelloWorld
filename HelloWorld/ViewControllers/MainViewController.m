@@ -50,6 +50,7 @@
     self.updateButton.center = CGPointMake(self.view.center.x, self.updateButton.center.y);
     [self.updateButton setTitle:@"Update" forState:UIControlStateNormal];
     [self.updateButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [self.updateButton addTarget:self action:@selector(updateButtonTouch) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.updateButton];
 }
 
