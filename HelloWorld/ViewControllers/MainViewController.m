@@ -8,7 +8,7 @@
 
 #import "MainViewController.h"
 
-@interface MainViewController ()
+@interface MainViewController () <UITextFieldDelegate>
 
 @property (nonatomic, strong) UITextField * mainTextField;
 @property (nonatomic, strong) UIButton * updateButton;
@@ -41,6 +41,7 @@
     float x = 40;
     self.mainTextField = [[UITextField alloc] initWithFrame:CGRectMake(x, 100, [UIScreen mainScreen].bounds.size.width - 2 * x, 30)];
     self.mainTextField.borderStyle = UITextBorderStyleRoundedRect;
+    self.mainTextField.delegate = self;
     [self.view addSubview:self.mainTextField];
 }
 
@@ -58,6 +59,13 @@
 
 - (void) updateButtonTouch {
     self.title = self.mainTextField.text;
+}
+
+#pragma mark - UITextFieldDelegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return NO;
 }
 
 @end
